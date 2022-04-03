@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  text-align: left;
+  align-self:center;
+  color: #000;
 }
 
 .App-logo {
@@ -21,7 +23,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .App-link {
@@ -35,4 +37,29 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.d-flex{
+  align-items: center;
+}
+
+.g0{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+
+body {
+  padding: 25px;
+  background-color: black;
+  color: white;
+  font-size: 25px;
+  align-items: center;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
 }
