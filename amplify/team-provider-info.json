@@ -15,11 +15,17 @@
       "function": {
         "vsfunc": {
           "deploymentBucketName": "amplify-videoseekerfe-dev-20000-deployment",
-          "s3Key": "amplify-builds/vsfunc-486958627479486f3061-build.zip"
+          "s3Key": "amplify-builds/vsfunc-5a795a7041716c676272-build.zip"
         }
       },
       "auth": {
         "videoseekerfe": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "ds1few68ufbbu",
+          "type": "manual"
+        }
       }
     }
   }

@@ -37,7 +37,7 @@ function App({ signOut, user })  {
         <nav class="navbar navbar-dark ">
           <p class=" display-5 text-warning" style={{marginLeft:"1em"}}><em><strong>VideoSeeker</strong></em></p>
           <div class="d-flex" style={{marginRight:"5%"}} >
-            <input id = "kw" class="form-control me-2" placeholder="video id" type="text" value={input} onChange={(e) => setInput(e.target.value)} style={{width: "40em",marginLeft:"10em"}}/>      
+            <input id = "kw" class="form-control me-2" placeholder="video name" type="text" value={input} onChange={(e) => setInput(e.target.value)} style={{width: "20em",marginLeft:"10em"}}/>      
             <button class="btn btn-secondary active" type="reset" onClick={() => getvideo({input})}>Search</button>
             <button class = "btn btn-secondary active" onClick={signOut} style = {{marginLeft : "1%"}}>logout</button>
           </div>
