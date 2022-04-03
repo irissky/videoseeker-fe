@@ -5,12 +5,11 @@ function Footer() {
     return (
       <small>
         <hr />
-        <p className="text-center">
-          Full source code available at this
-          {' '}
-          <a href="https://github.com/syuan00/my-app">
-            CS5224 VideoSeeker
-          </a>
+        <p class="text-muted" style = {{textAlign:"center"}}>
+            
+          CS5224 VideoSeeker: Hu Xuan, Hu Yue, Lai Tiantian, Thuk Chong
+          
+        
         </p>
       </small>
     );

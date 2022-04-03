@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import Amplify, { API } from 'aws-amplify'
 import Page from './nav.js';
 import HeadWindow from './HeadWindow';
+import { Icon } from '@iconify/react';
 const myAPI = "videoseekerfeapi"
 const path = '/videos'; 
 
@@ -43,12 +44,15 @@ const App = () => {
   //Function to fetch from our backend and update videos array
   function getvideo(e) {
     let videoId = e.input
+    document.getElementById('kw').value=''
     API.get(myAPI, path + "/" + videoId)
        .then(response => {
+          
           console.log(response)
           setvideos(response.index) 
           // setvideos(test_dict.index)//test
           setisResponse(true)
+          document.getElementById('kw').value=''
        })
        .catch(error => {
          console.log(error)
@@ -59,23 +63,20 @@ const App = () => {
     
     <div className="App">
       <div class="container-fluid">
-      <nav class="navbar navbar-dark ">
-      <a class="navbar-brand mb-0 h1" style={{marginLeft:"1em"}}>VideoSeeker</a>
-      <div class="d-flex" style={{marginRight:"18em"}} >
-
-          <input class="form-control me-2" placeholder="video id" type="text" value={input} onChange={(e) => setInput(e.target.value)} style={{width: "40em",marginLeft:"10em"}}/>      
-          <button class="btn btn-primary" onClick={() => getvideo({input})}>Search</button>
-         
+        <nav class="navbar navbar-dark ">
+          <p class=" display-3 text-warning" style={{marginLeft:"1em"}}><em><strong>VideoSeeker</strong></em></p>
+          <div class="d-flex" style={{marginRight:"5%"}} >
+            <input id = "kw" class="form-control me-2" placeholder="video id" type="text" value={input} onChange={(e) => setInput(e.target.value)} style={{width: "40em",marginLeft:"10em"}}/>      
+            <button class="btn btn-secondary active" type="reset" onClick={() => getvideo({input})}>Search</button>
+          </div>
+        </nav>   
       </div>
-      </nav>   
-      </div>
+    
       <br/>
   
-
-
     <HeadWindow/>
 
-      <p style={{visibility: videos.length == 0 && isResponse == true? 'visible' : 'hidden',textAlign:"center"}} > Sorry, we can't find the result.</p>
+      <p style={{display: videos.length == 0 && isResponse == true? 'block' : 'gone',textAlign:"center"}} > Sorry, we can't find the result.</p>
       {
          <div>
          {videos.map((data) => (
@@ -87,10 +88,20 @@ const App = () => {
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">{data.name}</h5>
-                    <p >actor: {data.id}</p>
-                    <p class="card-text">{data.description}</p>
-                    <p class="card-text"><small class="text-muted">{data.actor}</small></p>
+                    <h5 class="card-title h1 text-warning"> {data.name}</h5>
+                    <p class = "card-text "><b class = "text-capitalize">actor:</b>  <small class="text-muted "> {data.actor}</small></p>
+                    <p class="card-text "><b class = "text-capitalize">description: </b> <i class = "text-secondary"> {data.description}</i ></p>
+                    
+                    <p class="card-text h6 text-warning" >GO AND WATCH</p>
+
+                    <ul class="list-group list-group-horizontal bg-transparent">
+                      <li class="list-group-item bg-transparent" style={{display: data.src[0] == 1? 'block' : 'none'}}><a href='https://www.netflix.com/'><Icon icon="logos:netflix"/></a> <br/></li>
+                      <li class="list-group-item bg-transparent" style={{display: data.src[1] == 1? 'block' : 'none'}}><a  href='https://www.youtube.com/'><Icon icon="logos:youtube-icon" /></a></li>
+                      <li class="list-group-item bg-transparent" style={{display: data.src[2] == 1? 'block' : 'none'}}><a href = "https://www.hulu.com/"><Icon icon="cib:hulu" /></a></li>
+                      <li class="list-group-item bg-transparent" style={{display: data.src[3] == 1? 'block' : 'none'}}><a  href='https://www.primevideo.com/'><Icon icon="simple-icons:prime" width="50" height="50" /></a></li>
+                      <li class="list-group-item bg-transparent" style={{display: data.src[4] == 1? 'block' : 'none'}}><a href = "https://www.disneyplus.com/"><Icon icon="arcticons:disney" width="50" height="50" /></a></li>
+                    
+                    </ul>
                   </div>
                 </div>
               </div>
