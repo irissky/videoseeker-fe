@@ -2,10 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 // import Amplify, { API } from 'aws-amplify'
 import React, { useEffect, useState } from 'react'
-import Amplify, { API } from 'aws-amplify'
+import Amplify, { API ,Auth} from 'aws-amplify'
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import Page from './nav.js';
 import HeadWindow from './HeadWindow';
 import { Icon } from '@iconify/react';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
 const myAPI = "videoseekerfeapi"
 const path = '/videos'; 
 
@@ -35,7 +39,7 @@ const test_dict = {'index':
 
 
 
-const App = () => {
+function App({ signOut, user })  {
   const [darkMode, setDarkMode] = React.useState(true);
   const [input, setInput] = useState("")
   const [videos, setvideos] = useState([])
@@ -68,12 +72,13 @@ const App = () => {
           <div class="d-flex" style={{marginRight:"5%"}} >
             <input id = "kw" class="form-control me-2" placeholder="video id" type="text" value={input} onChange={(e) => setInput(e.target.value)} style={{width: "40em",marginLeft:"10em"}}/>      
             <button class="btn btn-secondary active" type="reset" onClick={() => getvideo({input})}>Search</button>
+            <button class = "btn btn-secondary active" onClick={signOut} style = {{marginLeft : "5%"}}>logout</button>
           </div>
         </nav>   
       </div>
     
       <br/>
-  
+      
     <HeadWindow/>
 
       <p style={{display: videos.length == 0 && isResponse == true? 'block' : 'gone',textAlign:"center"}} > Sorry, we can't find the result.</p>
@@ -115,4 +120,4 @@ const App = () => {
     </div>
   )
 }
-export default App;
+export default withAuthenticator(App);
