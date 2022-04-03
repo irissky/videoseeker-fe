@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-videoseekerfe-dev-20000-authRole",
+      "UnauthRoleArn": "arn:aws:iam::365574434140:role/amplify-videoseekerfe-dev-20000-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::365574434140:role/amplify-videoseekerfe-dev-20000-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-videoseekerfe-dev-20000-deployment",
+      "UnauthRoleName": "amplify-videoseekerfe-dev-20000-unauthRole",
+      "StackName": "amplify-videoseekerfe-dev-20000",
+      "StackId": "arn:aws:cloudformation:us-east-1:365574434140:stack/amplify-videoseekerfe-dev-20000/bf590a60-b2ae-11ec-a262-0e5ae768be0f",
+      "AmplifyAppId": "ds1few68ufbbu"
+    },
+    "categories": {
+      "function": {
+        "vsfunc": {
+          "deploymentBucketName": "amplify-videoseekerfe-dev-20000-deployment",
+          "s3Key": "amplify-builds/vsfunc-2b4533397a6b366c3330-build.zip"
+        }
+      }
+    }
+  }
+}
