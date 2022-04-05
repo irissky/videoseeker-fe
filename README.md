@@ -6,9 +6,7 @@ run `npm start` to run the app on your local machine `http://localhost:3000`
 
 The demo is like the following:
 
-<video id="video" controls="" preload="none">
-    <source id="mp4" src="https://raw.githubusercontent.com/irissky/00-pic/master/uPic/3166fd76-cb13-4634-900b-96aed37c8950.SCREEN.localview202204%2005%2014%2000%2005.mp4" type="video/mp4">
-</video>
+<img src = "https://github.com/irissky/00-pic/blob/master/uPic/e5698efb-4ba1-4937-97ed-86c4cb628072.SCREEN.localview202204%2005%2016%2011%2020.gif?raw=true"/>
 
 You can also attach it from  <a href="https://dev.ds1few68ufbbu.amplifyapp.com/" target="_blank">VideoSeeker</a>
 
