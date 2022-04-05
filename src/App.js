@@ -48,11 +48,8 @@ function App({ signOut, user })  {
       <br/>
       
     <HeadWindow/>
-
-      
       <br/>
       {
-        
          <div  style={{display: videos.length != 0 ? 'block' : 'none',textAlign:"center"}}>
          {videos.map((data) => (
            <div key={data.id}    style={{marginLeft:"10%", marginRight:"10%"}}>
