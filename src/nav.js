@@ -7,7 +7,7 @@ function Footer() {
         <hr />
         <p class="text-muted" style = {{textAlign:"center"}}>
             
-          CS5224 VideoSeeker: Hu Xuan, Hu Yue, Lai Tiantian, Thuk Chong
+          CS5224 VideoSeeker: Hu Xuan, Hu Yue, Lai Tiantian, Lee Thuk Chong
           
         
         </p>
