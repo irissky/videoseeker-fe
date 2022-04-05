@@ -62,7 +62,7 @@ function App({ signOut, user })  {
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title h2 text-warning" style={{textAlign:"left"}}> {data.name} </h5>
-                    <p class = "card-text " style={{display: data.actor.length == 0 ? 'none' : 'block', textAlign:"left"}}><b class = "text-capitalize">actor:</b>  <small class="text-muted "> {data.actor.replaceAll("/",", ")}</small></p>
+                    <p class = "card-text " style={{display: data.actor.length == 0 ? 'none' : 'block', textAlign:"left"}}><b class = "text-capitalize">actor:</b>  <small class="text-muted "> {data.actor.replaceAll("/",", ").slice(0,-2)}</small></p>
                     <p class="card-text " style = {{display: data.year.length == 0 ? 'none' : 'block',textAlign:"left"}}> <b class = "text-capitalize">Year: </b>  <small class="text-muted "> {data.year} </small></p>
                     <p class="card-text " style = {{display: data.age.length == 0 ? 'none' : 'block',textAlign:"left"}}> <b class = "text-capitalize">age restriction: </b>  <small class="text-muted "> {data.age} </small></p>
 
