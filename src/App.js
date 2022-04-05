@@ -15,6 +15,7 @@ const path = '/videos';
 function App({ signOut, user })  {
   const [input, setInput] = useState("")
   const [videos, setvideos] = useState([])
+  
   //Function to fetch from our backend and update videos array
   function getvideo(e) {
     let videoId = e.input
@@ -48,8 +49,8 @@ function App({ signOut, user })  {
       
     <HeadWindow/>
 
-      <p class = "text-warning" style={{visibility: videos.length == 0? 'visible' : 'hidden',textAlign:"center"}} > Get from google <a href = "https://www.google.com"> <Icon icon="akar-icons:google-contained-fill" /></a></p>
-      <div></div>
+      
+      <br/>
       {
         
          <div  style={{display: videos.length != 0 ? 'block' : 'none',textAlign:"center"}}>
@@ -58,19 +59,23 @@ function App({ signOut, user })  {
              <div class="card mb-3 bg-dark text-white" >
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img src={data.img} class="img-fluid rounded-start" alt="..." />
+                  <img src={data.img}  class="card-img-top embed-responsive-item" alt="..." />
+                  <p style = {{display: data.rotten_tomato.length == 0 ? 'none' : 'block'}}><Icon icon="fxemoji:tomato" /><small class="text-warining "> {data.rotten_tomato.split("/")[0]}</small><small class="text-secondary ">/{data.rotten_tomato.split("/")[1]}</small></p>
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title h1 text-warning" style={{textAlign:"left"}}> {data.name}</h5>
-                    <p class = "card-text " style={{textAlign:"left"}}><b class = "text-capitalize">actor:</b>  <small class="text-muted "> {data.actor}</small></p>
-                    <p class="card-text "style={{textAlign:"left"}}><b class = "text-capitalize">description: </b> <i class = "text-secondary"> {data.description}</i ></p>
-                    
-                    <p class="card-text h6 text-warning" style={{textAlign:"left"}}>GO AND WATCH</p>
+                    <h5 class="card-title h2 text-warning" style={{textAlign:"left"}}> {data.name} </h5>
+                    <p class = "card-text " style={{display: data.actor.length == 0 ? 'none' : 'block', textAlign:"left"}}><b class = "text-capitalize">actor:</b>  <small class="text-muted "> {data.actor.replaceAll("/",", ")}</small></p>
+                    <p class="card-text " style = {{display: data.year.length == 0 ? 'none' : 'block',textAlign:"left"}}> <b class = "text-capitalize">Year: </b>  <small class="text-muted "> {data.year} </small></p>
+                    <p class="card-text " style = {{display: data.age.length == 0 ? 'none' : 'block',textAlign:"left"}}> <b class = "text-capitalize">age restriction: </b>  <small class="text-muted "> {data.age} </small></p>
 
+                    <p class="card-text "style={{textAlign:"left", display: data.description.length == 0 ? 'none' : 'block'}}><b class = "text-capitalize">description: </b> <i class = "text-secondary"> {data.description}</i ></p>
+                    
+
+                    <p class="card-text h6 text-warning" style={{textAlign:"left"}}>GO AND WATCH</p>
                     <ul class="list-group list-group-horizontal bg-transparent">
                       <li class="list-group-item bg-transparent" style={{display: data.src[0] == 1? 'block' : 'none'}}><a href='https://www.netflix.com/'><Icon icon="logos:netflix"/></a> <br/></li>
-                      <li class="list-group-item bg-transparent" style={{display: data.src[1] == 1? 'block' : 'none'}}><a  href='https://www.youtube.com/'><Icon icon="logos:youtube-icon" /></a></li>
+                      <li class="list-group-item bg-transparent" style={{display: data.src[1] == 1? 'block' : 'none'}}><a  href={'https://www.youtube.com/results?search_query=' + data.name}><Icon icon="logos:youtube-icon" /></a></li>
                       <li class="list-group-item bg-transparent" style={{display: data.src[2] == 1? 'block' : 'none'}}><a href = "https://www.hulu.com/"><Icon icon="cib:hulu" /></a></li>
                       <li class="list-group-item bg-transparent" style={{display: data.src[3] == 1? 'block' : 'none'}}><a  href='https://www.primevideo.com/'><Icon icon="simple-icons:prime" width="50" height="50" /></a></li>
                       <li class="list-group-item bg-transparent" style={{display: data.src[4] == 1? 'block' : 'none'}}><a href = "https://www.disneyplus.com/"><Icon icon="arcticons:disney" width="50" height="50" /></a></li>
@@ -86,6 +91,7 @@ function App({ signOut, user })  {
          </div>
         
       }
+      <p class = "text-warning" style={{textAlign:"center"}}> Get <b class = "text-white">{input}</b> from google <a href = {"https://www.google.com/search?q=" + input}> <Icon icon="akar-icons:google-contained-fill" /></a></p>
       <Page/>
     </div>
   )
